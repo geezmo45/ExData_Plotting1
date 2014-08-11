@@ -19,5 +19,5 @@ y$Global_active_power <- as.numeric(y$Global_active_power)
 
 #plot histogram 1
 png("plot1.png")
-hist(y$Global_active_power, col=2, main="Global Active Power", xlab="Global Active Power (kilowatt)")
+hist(y$Global_active_power/1000, col=2, main="Global Active Power", xlab="Global Active Power (kilowatt)")
 dev.off()
