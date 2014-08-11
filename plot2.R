@@ -19,7 +19,6 @@ y$dtm <- strptime(paste(y$Date, y$Time, sep=" "))
 
 #plot graph 2
 png("plot2.png")
-
 with(y, plot(y$dtm, y$Global_active_power/1000, pch=".", xlab="", ylab="Global Active Power (kilowatt)"))
 with(y, lines(y$dtm, y$Global_active_power/1000))
 
