@@ -15,7 +15,7 @@ y <- y[y$Date >= as.Date("01/02/2007", format="%d/%m/%Y"), ]
 
 #format data
 y$Global_active_power <- as.numeric(y$Global_active_power)
-y$dtm <- strptime(paste(y$Date, y$Time, sep=" "))
+y$dtm <- strptime(paste(y$Date, y$Time, sep=" "), format="%Y-%m-%d %H:%M:%S")
 
 #plot graph 2
 png("plot2.png")
