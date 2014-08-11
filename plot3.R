@@ -14,7 +14,7 @@ y <- x[x$Date <= as.Date("02/02/2007", format="%d/%m/%Y"), ]
 y <- y[y$Date >= as.Date("01/02/2007", format="%d/%m/%Y"), ]
 
 #format data
-y$Global_active_power <- as.numeric(y$Global_active_power)
+y$Global_active_power <- as.numeric(as.character(y$Global_active_power))
 y$dtm <- strptime(paste(y$Date, y$Time, sep=" "), format="%Y-%m-%d %H:%M:%S")
 y$Sub_metering_1 <- as.numeric(as.character(y$Sub_metering_1))
 y$Sub_metering_2 <- as.numeric(as.character(y$Sub_metering_2))

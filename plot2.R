@@ -14,13 +14,13 @@ y <- x[x$Date <= as.Date("02/02/2007", format="%d/%m/%Y"), ]
 y <- y[y$Date >= as.Date("01/02/2007", format="%d/%m/%Y"), ]
 
 #format data
-y$Global_active_power <- as.numeric(y$Global_active_power)
+y$Global_active_power <- as.numeric(as.character(y$Global_active_power))
 y$dtm <- strptime(paste(y$Date, y$Time, sep=" "), format="%Y-%m-%d %H:%M:%S")
 
 #plot graph 2
 png("plot2.png")
-with(y, plot(y$dtm, y$Global_active_power/1000, pch=".", xlab="", ylab="Global Active Power (kilowatt)"))
-with(y, lines(y$dtm, y$Global_active_power/1000))
+with(y, plot(y$dtm, y$Global_active_power, pch=".", xlab="", ylab="Global Active Power (kilowatt)"))
+with(y, lines(y$dtm, y$Global_active_power))
 
 
 dev.off()

@@ -14,7 +14,7 @@ y <- x[x$Date <= as.Date("02/02/2007", format="%d/%m/%Y"), ]
 y <- y[y$Date >= as.Date("01/02/2007", format="%d/%m/%Y"), ]
 
 #format data
-y$Global_active_power <- as.numeric(y$Global_active_power)
+y$Global_active_power <- as.numeric(as.character(y$Global_active_power))
 y$dtm <- strptime(paste(y$Date, y$Time, sep=" "), format="%Y-%m-%d %H:%M:%S")
 y$Sub_metering_1 <- as.numeric(as.character(y$Sub_metering_1))
 y$Sub_metering_2 <- as.numeric(as.character(y$Sub_metering_2))
@@ -23,19 +23,12 @@ y$Sub_metering_3 <- as.numeric(as.character(y$Sub_metering_3))
 #plot graph 4
 png("plot4.png")
 
-#par(mfrow = c(2,2))
-#with (y, {
-#    plot(y$dtm, y$Global_active_power/1000, pch=".", xlab="", ylab="Global Active Power (1)")
-#    plot(y$dtm, y$Global_active_power/1000, pch=".", xlab="", ylab="Global Active Power (2)")
-#    plot(y$dtm, y$Global_active_power/1000, pch=".", xlab="", ylab="Global Active Power (3)")
-#    plot(y$dtm, y$Global_active_power/1000, pch=".", xlab="", ylab="Global Active Power (4)")
-#})
 par(mfrow = c(2,2))
 with (y, {
     # top left graph: global l power
-    plot(y$dtm, y$Global_active_power/1000, pch=".", xlab="", ylab="Global Active Power (kilowatt)")
-    lines(y$dtm, y$Global_active_power/1000)
-
+    plot(y$dtm, y$Global_active_power, pch=".", xlab="", ylab="Global Active Power (kilowatt)")
+    lines(y$dtm, y$Global_active_power)
+    
     # top right graph: Voltage
     plot(y$dtm, y$Voltage, pch=".", xlab="datetime", ylab="Voltage")
     lines(y$dtm, y$Voltage)

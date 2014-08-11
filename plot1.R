@@ -14,10 +14,9 @@ y <- x[x$Date <= as.Date("02/02/2007", format="%d/%m/%Y"), ]
 y <- y[y$Date >= as.Date("01/02/2007", format="%d/%m/%Y"), ]
 
 #format data
-y$Global_active_power <- as.numeric(y$Global_active_power)
-
+y$Global_active_power <- as.numeric(as.character(y$Global_active_power))
 
 #plot histogram 1
 png("plot1.png")
-hist(y$Global_active_power/1000, col=2, main="Global Active Power", xlab="Global Active Power (kilowatt)")
+hist(y$Global_active_power, col=2, main="Global Active Power", xlab="Global Active Power (kilowatt)")
 dev.off()
