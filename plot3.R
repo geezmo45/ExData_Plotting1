@@ -27,6 +27,6 @@ with(y, plot(y$dtm, y$Sub_metering_1, pch=".", xlab="", ylab="Energy sub meterin
 with(y, lines(y$dtm, y$Sub_metering_1, col=1))
 with(y, lines(y$dtm, y$Sub_metering_2, col=2))
 with(y, lines(y$dtm, y$Sub_metering_3, col=4))
-legend("topright", lty=1, col=c("black", "blue", "red"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright", lty=1, col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 dev.off()
